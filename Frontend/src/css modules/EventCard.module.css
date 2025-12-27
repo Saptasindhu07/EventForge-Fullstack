@@ -1,0 +1,277 @@
+.card {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  height:fit-content;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  cursor: grab;
+}
+
+.card::before {
+  content: '';
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  height:100%;
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.header,
+.body {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.titleSection {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0 0 24px 0;
+  opacity: 0.9;
+}
+
+.infoRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.icon {
+  font-size: 1.4rem;
+}
+
+.imageContainer {
+  flex-shrink: 0;
+}
+
+.eventImage {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.body {
+  padding-top: 0;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+.footerItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-weight: 600;
+  color: #333;
+}
+
+.overlayContainer{
+  z-index: 1000;
+  position: fixed;
+  top:0;
+  left: 0;
+  right:0;
+  height:100%;
+  width:100%;
+  background: 
+    linear-gradient(135deg, rgba(200, 210, 220, 0.6) 0%, rgba(100, 110, 130, 0.4) 50%, rgba(50, 60, 80, 0.6) 100%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 50%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 50%, rgba(0, 0, 0, 0.3)),
+    #1a1f2e; /* Dark base for depth */
+  background-blend-mode: overlay, screen, normal;
+  backdrop-filter: blur(8px) brightness(1.1); /* Modern glass + shine effect */
+  opacity: 0.9;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;     /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+
+.badge {
+  background: #e0e0e0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.badgePrivate {
+  background: #ffcccb;
+  color: #900;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    linear-gradient(135deg, rgba(180, 190, 210, 0.25) 0%, rgba(80, 90, 110, 0.15) 50%, rgba(40, 50, 70, 0.25) 100%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.3), transparent 60%);
+  background-color: rgba(20, 25, 40, 0.4);
+  backdrop-filter: blur(10px) saturate(1.2);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.overlayActive {
+  opacity: 0.95;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.dialog {
+  background: rgba(30, 35, 50, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(100, 150, 255, 0.3);
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(100, 150, 255, 0.1),
+    0 0 60px rgba(100, 150, 255, 0.2);
+  text-align: center;
+  color: #e0e7ff;
+  animation: dialogFadeIn 0.6s ease-out;
+  opacity: 1;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dialog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.256), rgba(13, 135, 192, 0.566), rgba(108, 111, 210, 0.549));
+  animation: shine 10s infinite alternate-reverse;
+  pointer-events: none;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.message {
+  margin: 0 0 40px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnJoin {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  color: white;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btnJoin:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.6);
+}
+
+.btnCancel {
+  background: rgba(70, 80, 100, 0.6);
+  color: #c0c8e0;
+  border: 1px solid rgba(100, 150, 255, 0.3);
+}
+
+.btnCancel:hover {
+  background: rgba(100, 110, 130, 0.6);
+  transform: translateY(-4px);
+}
+
+@keyframes dialogFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

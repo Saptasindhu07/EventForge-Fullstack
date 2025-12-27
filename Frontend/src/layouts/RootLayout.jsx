@@ -41,7 +41,6 @@ function RootLayout() {
           <NavProvider><Sidebar></Sidebar></NavProvider>
           <Outlet></Outlet>
         </main>
-        
     </div>
     
   )

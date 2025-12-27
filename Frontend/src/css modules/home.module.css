@@ -1,0 +1,260 @@
+.homeContainer{
+    margin:0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    height :100%;
+}
+.welcome{
+    caret-color: transparent;
+    background: 
+    /* Subtle light overlay – same as before */
+    linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.11) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(148, 163, 184, 0.08) 70%,
+      transparent 100%
+    ),
+    /* ← Lighter base gradient (this is the magic) */
+    linear-gradient(135deg, #1E293B 0%, #334155 45%, #475569 100%);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    width: 100%;
+    height : 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.welcomeContent {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.welcomeContent h1 {
+  color: white;
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.welcomeContent h1 span {
+  color: white;
+}
+
+.welcomeContent p {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #edeeef;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.mainContent{
+  width:100%;
+  flex:1;
+  display:flex;
+  flex-direction: row;
+  gap:1.3rem;
+}
+.eventList{
+  caret-color: transparent;
+  width: 40%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  background-color: white;
+  border-radius: 1.5rem;
+  overflow-y: hidden;
+  display: flex;
+  flex-flow: column;
+}
+
+.rightContent{
+  width:58%;
+  background-color: white;
+  position: relative;
+  height:100%;
+  max-height: 100%;
+  border-radius: 1.5rem;
+  overflow-y: scroll;
+}
+.EventListTitle{
+  color: rgba(0, 0, 0, 0.73);
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;     /* Critical */
+  font-size-adjust: 0.5;
+  padding-left: 1rem;
+  display: block;
+  padding-top: 1rem;
+}
+
+.cardHolder{
+  margin-left: auto;
+  margin-right: auto;
+  width:90%;
+  height: 30rem;
+  gap:1rem;
+  display: flex;
+  flex-flow: column;
+  overflow-y: auto;
+  /* Hide scrollbar for Chrome, Edge, Safari */
+  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge legacy */
+}
+.cardHolder::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.card{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  color:#edeeef;
+  justify-content: space-between;
+  min-height:10rem;
+  max-height: 10rem;
+  border-radius: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.icon {
+  background: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 28px;
+  font-weight: 300;
+  opacity: 0.9;
+  margin: 8px 0 16px;
+  font-style: italic;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.time {
+  font-weight: bold;
+}
+
+.locationIcon {
+  font-size: 20px;
+}
+
+.location {
+  font-size: 18px;
+}
+
+.rightContentNav{
+  position: sticky;
+  background: #111111; 
+  /* Fallback color for older browsers */
+  background-image: linear-gradient(
+    to bottom,
+    /* Top edge: A deep, almost black charcoal */
+    #1d1d1d 0%, 
+    /* Slightly lighter sheen for the reflective surface */
+    #2c2c2c 5%, 
+    /* Main body: The darkest part of the metal */
+    #0a0a0a 50%, 
+    /* A quick highlight near the bottom */
+    #181818 95%, 
+    /* Bottom edge: Blends back to a dark tone */
+    #0c0c0c 100%
+  );
+  /* Optional: Add a subtle box shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  top:0;
+  width:100%;
+  height:7%;
+  border-bottom: 1px solid #74798370;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0rem;
+}
+.rightContentNavElement{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: bold;
+  margin-right: 1rem;
+  cursor: grab;
+  color: #C0C0C0;
+  margin-left: 1rem;
+  caret-color: transparent;
+}
+
+.rightContentNavElement:hover{
+/* Slightly brighten the silver color */
+  color: #FFFFFF; 
+  
+  /* Subtle text shadow to make the silver look polished/reflective */
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  
+  /* Quick transition for smoothness */
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.rightContentNavSelected{
+/* 1. TEXT COLOR: Use a bright, electric color for immediate contrast */
+  color: #0096FF; /* Electric Blue */
+  
+  /* 2. GLOW EFFECT: Add a text shadow that mimics a bright light source */
+  text-shadow: 
+    0 0 5px rgba(0, 150, 255, 0.6), /* Inner soft glow */
+    0 0 15px rgba(0, 150, 255, 0.3); /* Wider faint halo */
+  
+  /* 3. UNDERLINE EFFECT: A clean, glowing underline that's part of the text box */
+  /* Use a box-shadow for a clean glow instead of a border */
+  box-shadow: 
+    inset 0 -3px 0 0 #0096FF, /* Thin, solid blue line at the bottom */
+    inset 0 -5px 10px -5px rgba(0, 150, 255, 0.5); /* Soft gradient/shadow underneath */
+      
+  /* 4. TRANSITION: Essential for a modern feel (applies to all changes) */
+  transition: all 0.2s ease-in-out;
+}
+
+.rightMainContent{
+  display: flex;
+  flex-direction: column;
+  height:max-content;
+}

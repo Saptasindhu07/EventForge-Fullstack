@@ -1,0 +1,250 @@
+/* src/pages/LoginPage.module.css */
+.container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  width:100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  animation: float 18s infinite ease-in-out;
+}
+
+.shape:nth-child(1) {
+  width: 380px;
+  height: 380px;
+  top: -5%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+  width: 280px;
+  height: 280px;
+  bottom: -8%;
+  right: -5%;
+  animation-delay: 6s;
+}
+
+.shape:nth-child(3) {
+  width: 320px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 12s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-40px) rotate(10deg); }
+}
+
+.form {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px);
+  border-radius: 24px;
+  padding: 50px 40px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 15px;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 0 10px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  border-color: #fff;
+}
+
+.label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  top: -8px;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember input {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.remember input:checked ~ .checkmark {
+  background: #fff;
+  border-color: #fff;
+}
+
+.remember input:checked ~ .checkmark::after {
+  content: '✓';
+  position: absolute;
+  color: #1e3c72;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+.forgot {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin-bottom: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.message {
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.success {
+  background: rgba(0, 200, 0, 0.2);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.error {
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.signup {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.signupLink {
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: opacity 0.3s;
+}
+
+.signupLink:hover {
+  opacity: 0.8;
+}
