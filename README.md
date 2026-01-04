@@ -1,6 +1,11 @@
 # EvenForge: Event Management and Real-Time Chat Platform
 
-![EvenForge Logo](https://via.placeholder.com/150?text=EvenForge) <!-- Replace with actual logo if available -->
+## Live Images
+
+<img width="3727" height="1976" alt="Screenshot 2026-01-04 144613" src="https://github.com/user-attachments/assets/ba204481-e170-453a-b4e2-a0ec4086620e" />
+<img width="3690" height="1918" alt="Screenshot 2026-01-04 144622" src="https://github.com/user-attachments/assets/93c301dd-06d8-4268-a8d7-2555ea63e766" />
+
+
 
 ## Overview
 
