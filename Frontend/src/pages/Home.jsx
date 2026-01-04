@@ -17,7 +17,7 @@ export async function HomeLoader() {
 }
 
 export function Home() {
-  const name = "Sapta Sindhu Palit";
+  const name = JSON.parse(localStorage.getItem("user")).name ;
   return (
     <div className={contentStyles.contentContainer}>
       <main className={styles.homeContainer}>
@@ -29,13 +29,13 @@ export function Home() {
             <p>Stay updated with your events and connect with the community.</p>
           </div>
         </div>
-        <RefreshProvider>
+        
           
-          <div className={styles.mainContent}>
-            <EventList></EventList>
-            <RightContent></RightContent>
-          </div>
-        </RefreshProvider>
+        <div className={styles.mainContent}>
+          <EventList></EventList>
+          <RightContent></RightContent>
+        </div>
+        
       </main>
     </div>
   );

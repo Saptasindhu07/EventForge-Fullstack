@@ -25,6 +25,7 @@ function EventList() {
         {events.map((event) => {
           return (
             <EventCard
+              
               _id={event._id}
               title={event.title}
               subtitle={event.subtitle}

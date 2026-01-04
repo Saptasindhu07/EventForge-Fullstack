@@ -20,6 +20,9 @@ import attention_white from "../assets/attention_white.png"
 import Sidebar from '../components/Sidebar'
 import NavProvider from '../contexts/NavbarProvider'
 import style_index from "../index.module.css"
+import { Toaster } from 'sonner';
+import RefreshProvider from '../contexts/EventRefreshProvider'
+
 function RootLayout() {
   return (
     <div className={style_index.container_x}>
@@ -38,8 +41,13 @@ function RootLayout() {
           </div>
         </nav>
         <main className={content_styles.content_pane}>
-          <NavProvider><Sidebar></Sidebar></NavProvider>
-          <Outlet></Outlet>
+          <NavProvider>
+            <RefreshProvider>
+              <Sidebar></Sidebar>
+              <Outlet></Outlet>
+              <Toaster position="top-right" richColors closeButton />
+            </RefreshProvider>
+          </NavProvider>
         </main>
     </div>
     

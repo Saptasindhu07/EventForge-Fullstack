@@ -19,18 +19,26 @@ import attention_white from "../assets/attention_white.png"
 import { useNav } from '../contexts/NavbarProvider'
 import info from "../assets/info.png"
 import info_white from "../assets/info_white.png"
+import { useNavigate } from 'react-router-dom'
 function Sidebar() {
     const {selected,dispatch}=useNav()
+    const navigate= useNavigate()
     return (
     <aside className={styles.sidebar}>
         <div className={styles.sidebarTop}>
-            <div className={selected=="home"?styles.sidebarImgContainer: styles.sidebarImgContainerWhite} onClick={()=>{dispatch({type:"home"})}}>
+            <div className={selected=="home"?styles.sidebarImgContainer: styles.sidebarImgContainerWhite} onClick={()=>{
+                dispatch({type:"home"})
+                navigate('/')
+            }}>
                 <img className={styles.sidebarImg} src={selected=="home" ? home2 : home}></img>
             </div>
             <div className={selected=="calendar"?styles.sidebarImgContainer: styles.sidebarImgContainerWhite} onClick={()=>{dispatch({type:"calendar"})}}>
                 <img className={styles.sidebarImg} src={selected=="calendar"?calendar_white:calendar}></img>
             </div>
-            <div className={selected=="message"?styles.sidebarImgContainer: styles.sidebarImgContainerWhite} onClick={()=>{dispatch({type:"message"})}}>
+            <div className={selected=="message"?styles.sidebarImgContainer: styles.sidebarImgContainerWhite} onClick={()=>{
+                dispatch({type:"message"}) 
+                navigate('/chat')
+            }}>
                 <img className={styles.sidebarImg} src={selected=="message"?message_white:message}></img>
             </div>
             <div className={selected=="attention"?styles.sidebarImgContainer: styles.sidebarImgContainerWhite} onClick={()=>{dispatch({type:"attention"})}}>

@@ -7,12 +7,15 @@ import { HomeLoader } from './pages/Home'
 import styles from "./index.module.css"
 import RegisterPage from './pages/Register'
 import LoginPage from './pages/Login'
+import Chat from './components/Chat'
+
 function App() {
   const router= createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<RootLayout></RootLayout>}>
       <Route path="/" element={<HomeWrapper></HomeWrapper>} loader={HomeLoader}></Route>
       <Route path="/register" element={<RegisterPage></RegisterPage>}></Route>
       <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+      <Route path="/chat" element={<Chat></Chat>}></Route>
     </Route>
   ))
   return (

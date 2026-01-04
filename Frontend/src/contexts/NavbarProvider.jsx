@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react'
 import { useState,useEffect,useReducer } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 const CartContext=createContext()
 
 function NavbarReducer(selected, action){
@@ -22,6 +22,7 @@ function NavbarReducer(selected, action){
 }
 
 function NavProvider({children}){
+    const navigate= useNavigate()
     const [selected, dispatch] = useReducer(NavbarReducer,"home")
     return(
         <CartContext.Provider value={{selected,dispatch}}>{children}</CartContext.Provider>

@@ -1,0 +1,269 @@
+.chatWindow{
+    width:100%;
+    height:99%;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPane{
+    width:30%;
+    height:99%;
+    max-height: 99%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+}
+
+
+
+.chatGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, 
+    #0a0f1a 0%, 
+    #0d1829 50%, 
+    #111f33 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(100, 160, 255, 0.12);
+  box-shadow: 
+    inset 0 0 40px rgba(60, 120, 220, 0.06),  /* very subtle blue inner glow */
+    0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.chatGroup:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transform: translateY(-2px);
+}
+
+.chatGroup.active {
+  background-color: rgba(59, 130, 246, 0.15);
+  border-left: 4px solid #3b82f6;
+  backdrop-filter: blur(12px);
+}
+
+/* Avatar */
+.avatarContainer {
+  position: relative;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.avatarFallback {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Online dot */
+.onlineDot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  border: 3px solid #1a1a1a; /* adjust if your background is dark */
+}
+
+/* Text */
+.text {
+  flex: 1;
+}
+
+.groupName {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .onlineDot {
+    border-color: #000000;
+  }}
+
+
+
+/* Right Pane Container - Deep subtle blue-black glass background */
+.rightPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #0a0e17 0%, #0d1624 50%, #111a2d 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional subtle overlay for extra depth */
+.rightPane::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Chat Header - Clean frosted bar */
+.chatHeader {
+  height: 50px;
+  padding: 1px 1px 1px 1px;
+  font-size: 40px;
+  overflow: hidden;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(91, 132, 160, 0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(100, 160, 255, 0.12);
+  z-index: 10;
+}
+
+/* Messages Area - Smooth scrolling */
+.messagesArea {
+  flex: 1;
+  padding: 32px 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Other user's message - Subtle frosted glass */
+.message {
+  max-width: 70%;
+  padding: 14px 20px;
+  border-radius: 20px;
+  border-bottom-left-radius: 6px;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: messageFadeIn 0.4s ease-out;
+}
+
+/* Your own message - Vibrant blue gradient */
+.ownMessage {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Message animations */
+@keyframes messageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Username in message */
+.messageUser {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #60a5fa;
+}
+
+/* Timestamp */
+.messageTime {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Input Area - Glassy bottom bar */
+.inputArea {
+  display: flex;
+  padding: 24px 40px;
+  gap: 16px;
+  background: rgba(15, 20, 35, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(100, 160, 255, 0.15);
+  z-index: 10;
+}
+
+/* Input field */
+.messageInput {
+  flex: 1;
+  padding: 18px 28px;
+  border-radius: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.05rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.messageInput:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25);
+}
+
+.messageInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Send Button - Glowing blue */
+.sendButton {
+  padding: 0 32px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+}
+
+.sendButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.6);
+}
+

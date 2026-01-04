@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../css modules/EventCard.module.css";
+import { toast } from 'sonner';
 
 const EventCard = ({
   _id,
@@ -21,36 +22,45 @@ const EventCard = ({
     setIsDeciding(true)
   }
   async function onJoin(){
-    const res= await fetch('http://localhost:8000/addAttendee',{
-      method:'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(
-        {
-          _id: _id,
-          userId: JSON.parse(localStorage.getItem('user'))._id
-        }
-      )
-    })
-    const res2= await fetch('http://localhost:8000/eventJoined',{
-      method:'POST',
-      headers:{
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(
-        {
-          eventId:_id,
-          userId: JSON.parse(localStorage.getItem('user'))._id
-        }
-      )
-    })
-
-    if(!res.ok || !res2.ok){
-      alert("Connection error. Event not joined")
-    }
-    else{
-      alert("Event Joined successfully!")
+    try{
+        const res= await fetch('http://localhost:8000/addAttendee',{
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+          {
+            _id: _id,
+            userId: JSON.parse(localStorage.getItem('user'))._id
+          }
+        )
+      })
+      const res2= await fetch('http://localhost:8000/eventJoined',{
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+          {
+            eventId:_id,
+            userId: JSON.parse(localStorage.getItem('user'))._id
+          }
+        )
+      })
+      const data= await res.json()
+      const data2= await res2.json()
+      if(!data.success){
+        toast.error(data.message)
+      }
+      else if(!data2.success){
+        toast.error(data2.message)
+      }
+      else{
+        toast.success("Event Joined successfully!")
+      }
+      
+    }catch(err){
+      toast.error("Connection Failed. Please try again")
     }
   }
   function onClose(){
